@@ -134,9 +134,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\cuentas.cs" />
+    <Compile Include="Models\datos_session.cs" />
     <Compile Include="Models\modelo_cuentas.cs" />
     <Compile Include="Models\personas.cs" />
-    <Compile Include="ModelView\cuentas_viewmodel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="seguridad\CustomAuthorizeAttribute.cs" />
     <Compile Include="seguridad\customPrincipal.cs" />
@@ -986,11 +986,17 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\login\_index.cshtml" />
+    <Content Include="Views\menu\index.cshtml" />
+    <Content Include="Views\inicio\index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\menu\_vista1.cshtml" />
+    <Content Include="Views\menu\_vista2.cshtml" />
+    <Content Include="Views\login\denegado.cshtml" />
+    <Content Include="Views\login\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\inicio\" />
-    <Folder Include="Views\menu\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

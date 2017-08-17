@@ -1,8 +1,8 @@
 ﻿<div>
     <form name="mainForm" data-ng-submit="login()" data-ng-controller="login" ng-model="logins">
         @using (Html.BeginForm("login", "login"))
-        {
-            <div flex layout-padding ng-show="respuesta.aviso">{{respuesta.aviso}}</div> 
+        {<div flex layout-padding ng-show="respuesta.aviso">{{respuesta.aviso}}</div>
+
         <p>
             <h3>Correo electronico</h3>
             <input type="text" class="form-control" id="correo_electronico_persona" placeholder="Correo electronico" ng-model="logins.correo_electronico_persona" />

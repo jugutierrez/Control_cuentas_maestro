@@ -15,12 +15,13 @@ namespace Control_cuentas_maestro.Models
         [Display(Name = "id_curriculum")]
         public int id_curriculum { get; set; }
 
-
+        
     }
 
     public class PersonaDBContext : DbContext
     {
         public DbSet<personas> personas { get; set; }
+     
     }
 
 

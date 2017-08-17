@@ -2,70 +2,52 @@
 
         
 
-            app.controller('dialogController', dialogController);
 
-         function dialogController ($scope, $mdDialog) {
-            $scope.status = '';
-			$scope.items = [1,2,3,4,5];
-            $scope.showAlert = function(ev) {
-               $mdDialog.show(
-                  $mdDialog.alert()
-                     .parent(angular.element(document.querySelector('#dialogContainer')))
-                     .clickOutsideToClose(true)
-                     .title('TutorialsPoint.com')
-                     .textContent('Welcome to TutorialsPoint.com')
-                     .ariaLabel('Welcome to TutorialsPoint.com')
-                     .ok('Ok!')
-                     .targetEvent(ev)
-               );
-            };
-			
-			
-            $scope.showConfirm = function(event) {
-               var confirm = $mdDialog.confirm()
-                  .title('Are you sure to delete the record?')
-                  .textContent('Record will be deleted permanently.')
-                  .ariaLabel('TutorialsPoint.com')
-                  .targetEvent(event)
-                  .ok('Yes')
-                  .cancel('No');
-                  $mdDialog.show(confirm).then(function() {
-                     $scope.status = 'Record deleted successfully!';
-                     }, function() {
-                        $scope.status = 'You decided to keep your record.';
-                  });
-            };
-			
-            $scope.showCustom = function(event) {
-               $mdDialog.show({
-                  clickOutsideToClose: true,
-                  scope: $scope,        
-                  preserveScope: true,           
-            
-                  templateUrl: '/panel/agregar_bodega',
-                  controller: function DialogController($scope, $mdDialog) {
-                     $scope.closeDialog = function() {
-                        $mdDialog.hide();
-                     }
-                  }
-               });
-            };
-         }
+app.controller('modals', ['$scope', 'mantenedor_total', function ($scope ,mantenedor_total) {
 
+    $scope.abremodal = function (url, id) {
+        mantenedor_total.modal(url, id, $scope);
+    };
+}]);
+app.controller('login', ['$scope', 'mantenedor_total', function ($scope, mantenedor_total) {
+
+    $scope.login = function () {
+
+        var personas = { 'correo_electronico_persona': $scope.logins.correo_electronico_persona, 'clave_persona': $scope.logins.clave_persona };
+        var add_emp = mantenedor_total.agregar_datos('/login/login', personas);
+        add_emp.then(function (successResponse) {
+            if (successResponse.data.success == true) {
+                window.location.pathname = successResponse.data.respuesta; 
+
+
+            } else {
+                $scope.respuesta = successResponse.data.respuesta;
+            }
+        
+           
+        },
+        function (errorResponse) {
+            console.log("error login")
+        });
+    };
+
+
+}]);
 
       
          app.controller('ExampleController', ['$scope', function ($scope) {
-             debugger;
+           
              $scope.loading = false;
              $scope.templates =
-               [{ name: 'template1.html', url: 'demo/index1' },
-                { name: 'template2.html', url: 'demo/mis_bodegas' },
-               { name: 'template3.html', url: 'demo/informes' }];
+               [{ name: 'template1.html', url: '../menu/vista1' },
+                { name: 'template2.html', url: '../menu/vista2' },
+               { name: 'template3.html', url: '../menu/vista3' }];
              
              $scope.template = $scope.templates[0];
              $scope.boton = function (url) {
                  $scope.loading = true;
                  $scope.template = $scope.templates[url];
+                
                  $scope.loading = false;
              };
          }]);
