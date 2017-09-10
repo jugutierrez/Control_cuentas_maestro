@@ -38,7 +38,8 @@
 }
 else
 {
-                <li><a ng-click="abremodal('../login/modal_index' ,'')">Iniciar Sesion</a></li>
+                <li><a ng-click="open('lg','../login/modal_index')">Iniciar Sesion</a></li>
+                <li>@Html.ActionLink("Iniciar Sesion", "index", "login")</li>
 }
             </ul>
         

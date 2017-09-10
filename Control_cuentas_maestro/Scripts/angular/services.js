@@ -37,4 +37,25 @@
     };
 
 
+
+}]);
+app.service('modal_control', ['$uibModal', '$log', '$document', function ($uibModal,$log,$document) {
+    this.modal_ui = function (size, url) {
+
+    
+ 
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: url,
+                    size: size
+                
+                   
+                });
+
+          
+            };
+
+  
 }]);

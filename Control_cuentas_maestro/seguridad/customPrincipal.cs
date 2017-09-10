@@ -15,7 +15,7 @@ namespace Control_cuentas_maestro.seguridad
         public customPrincipal(personas cuentas)
         {
             this.cuentas = cuentas;
-            this.Identity = new GenericIdentity(cuentas.nombre_persona);
+            this.Identity = new GenericIdentity(cuentas.correo_electronico_persona);
         }
         public IIdentity Identity
         {

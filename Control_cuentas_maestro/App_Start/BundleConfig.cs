@@ -23,6 +23,9 @@ namespace Control_cuentas_maestro
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular_ui").Include(
+
+                 "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/angular1").Include(
 
                      "~/Scripts/angular/modulo.js",
@@ -37,8 +40,10 @@ namespace Control_cuentas_maestro
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/angular-material.css",
-                      "~/Content/site.css"));
+                     "~/Content/angular-material.css",
+                      "~/Content/site.css",
+                        "~/Content/bootstrap.min.css"));
+
         }
     }
 }

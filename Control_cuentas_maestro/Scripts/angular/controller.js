@@ -3,11 +3,16 @@
         
 
 
-app.controller('modals', ['$scope', 'mantenedor_total', function ($scope ,mantenedor_total) {
+app.controller('modals', ['$scope', 'mantenedor_total', 'modal_control', function ($scope, mantenedor_total, modal_control) {
 
     $scope.abremodal = function (url, id) {
         mantenedor_total.modal(url, id, $scope);
     };
+
+    $scope.open = function (size, url) {
+       
+        modal_control.modal_ui(size,url);
+    }
 }]);
 app.controller('login', ['$scope', 'mantenedor_total', function ($scope, mantenedor_total) {
 
@@ -39,9 +44,10 @@ app.controller('login', ['$scope', 'mantenedor_total', function ($scope, mantene
            
              $scope.loading = false;
              $scope.templates =
-               [{ name: 'template1.html', url: '../menu/vista1' },
-                { name: 'template2.html', url: '../menu/vista2' },
-               { name: 'template3.html', url: '../menu/vista3' }];
+               [{ name: 'Panel de Inicio', url: '../menu/panel' },
+                { name: 'Mis Bodegas', url: '../menu/vista1' },
+                 { name: 'Estadisticas', url: '../menu/vista2' },
+               { name: 'Contacto', url: '../menu/vista3' }];
              
              $scope.template = $scope.templates[0];
              $scope.boton = function (url) {
@@ -122,3 +128,6 @@ app.controller('login', ['$scope', 'mantenedor_total', function ($scope, mantene
                  });
            };
        });
+
+       
+       

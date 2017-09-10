@@ -11,7 +11,8 @@ namespace Control_cuentas_maestro.Models
 
         public modelo_cuentas()
         {
-          lista_cuentas =  db.personas.ToList();
+          //lista_cuentas =  db.personas.ToList();
+            lista_cuentas.Add(new personas { id_persona = 0, correo_electronico_persona = "123@123", clave_persona = "123123" });
             
         }
         public personas find(string user)

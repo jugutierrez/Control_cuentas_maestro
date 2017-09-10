@@ -40,12 +40,12 @@ namespace Control_cuentas_maestro.Controllers
                 return Json(new { success = false, respuesta = new { aviso = "el rut no es valido" } }, JsonRequestBehavior.AllowGet);
             }
 
-            var k = db.Database.SqlQuery<datos_session>("select id_persona , id_curriculum from personas where correo_electronico_persona = {0}", personas.correo_electronico_persona).Single();
+           // var k = db.Database.SqlQuery<datos_session>("select id_persona , id_curriculum from personas where correo_electronico_persona = {0}", personas.correo_electronico_persona).Single();
 
 
             SessionPersister.activo = true;
-            SessionPersister.id_persona = k.id_persona.ToString();
-            SessionPersister.id_curriculum = k.id_curriculum.ToString();
+            SessionPersister.id_persona = "0";//k.id_persona.ToString();
+            SessionPersister.id_curriculum = "0"; //k.id_curriculum.ToString();
            
       return Json(new { success = true, respuesta = "../menu/index" }, JsonRequestBehavior.AllowGet);
         }
